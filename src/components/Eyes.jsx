@@ -1,6 +1,6 @@
 import { transform } from 'framer-motion';
 import React, { useEffect, useState } from 'react'
-np
+
 function Eyes() {
   const [rotate, setRotate] = useState(0)
   useEffect(() => {
