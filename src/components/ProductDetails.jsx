@@ -30,10 +30,7 @@ const ProductDetails = () => {
         <div className="max-w-lg mx-auto bg-white shadow-md rounded-lg p-6 mt-6">
             <h2 className="text-2xl font-bold mb-4 text-center">{product.title}</h2>
             <img src={product.image} alt={product.title} className="w-full h-64 object-contain mb-4" />
-            <p className="text-gray-700"><strong>Category:</strong> {product.category}</p>
             <p className="text-gray-700"><strong>Price:</strong> ${product.price}</p>
-            <p className="text-gray-700"><strong>Description:</strong> {product.description}</p>
-            <p className="text-yellow-500"><strong>Rating:</strong> {product.rating.rate} ({product.rating.count} reviews)</p>
         </div>
     );
 };

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AddProduct = ({ addProduct }) => {
-    const [product, setProduct] = useState({ title: "", price: "" });
+    const [product, setProduct] = useState({ title: "", price: ""});
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -39,7 +39,7 @@ const AddProduct = ({ addProduct }) => {
                     className="w-full p-2 border rounded"
                     required
                 />
-
+                
                 <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
                     Add Product
                 </button>

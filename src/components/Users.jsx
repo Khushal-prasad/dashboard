@@ -30,30 +30,32 @@ const Users = ({ users, setUsers, addUser, updateUser, deleteUser }) => {
     };
 
     return (
-        <div>
-            <h2 className="text-2xl font-bold mb-4">Users</h2>
+        <div className="p-4 max-w-3xl mx-auto">
+            <h2 className="text-2xl font-bold mb-4 text-center">Users</h2>
 
           
-            <form onSubmit={handleSubmit} className="mb-4 p-4 bg-white shadow-md rounded">
-                <input type="text" name="firstname" value={newUser.firstname} onChange={handleChange} placeholder="First Name" className="border p-2 mr-2" required />
-                <input type="text" name="lastname" value={newUser.lastname} onChange={handleChange} placeholder="Last Name" className="border p-2 mr-2" required />
-                <input type="email" name="email" value={newUser.email} onChange={handleChange} placeholder="Email" className="border p-2 mr-2" required />
-                <input type="text" name="username" value={newUser.username} onChange={handleChange} placeholder="Username" className="border p-2 mr-2" required />
-                <button type="submit" className="bg-blue-500 text-white px-4 py-2">{editingUser ? "Update" : "Add"} User</button>
+            <form onSubmit={handleSubmit} className="mb-4 p-4 bg-white shadow-md rounded-lg grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input type="text" name="firstname" value={newUser.firstname} onChange={handleChange} placeholder="First Name" className="border p-2 rounded w-full" required />
+                <input type="text" name="lastname" value={newUser.lastname} onChange={handleChange} placeholder="Last Name" className="border p-2 rounded w-full" required />
+                <input type="email" name="email" value={newUser.email} onChange={handleChange} placeholder="Email" className="border p-2 rounded w-full" required />
+                <input type="text" name="username" value={newUser.username} onChange={handleChange} placeholder="Username" className="border p-2 rounded w-full" required />
+                <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded col-span-1 md:col-span-2 hover:bg-blue-600 transition">
+                    {editingUser ? "Update" : "Add"} User
+                </button>
             </form>
 
-        
-            <ul>
+           
+            <ul className="space-y-3">
                 {users.map((user) => (
-                    <li key={user.id} className="mb-2 p-2 border rounded flex justify-between items-center">
-                        <div>
+                    <li key={user.id} className="p-4 border rounded-lg bg-white shadow flex flex-col md:flex-row md:justify-between md:items-center">
+                        <div className="mb-2 md:mb-0">
                             <strong>Name:</strong> {user.name?.firstname || 'N/A'} {user.name?.lastname || 'N/A'} <br />
                             <strong>Email:</strong> {user.email || 'N/A'} <br />
                             <strong>Username:</strong> {user.username || 'N/A'}
                         </div>
-                        <div>
-                            <button onClick={() => handleEdit(user)} className="bg-yellow-500 text-white px-3 py-1 mr-2">Edit</button>
-                            <button onClick={() => deleteUser(user.id)} className="bg-red-500 text-white px-3 py-1">Delete</button>
+                        <div className="flex gap-2">
+                            <button onClick={() => handleEdit(user)} className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 transition">Edit</button>
+                            <button onClick={() => deleteUser(user.id)} className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition">Delete</button>
                         </div>
                     </li>
                 ))}
