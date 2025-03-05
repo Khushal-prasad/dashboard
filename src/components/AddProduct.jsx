@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AddProduct = ({ addProduct }) => {
-    const [product, setProduct] = useState({ title: "", price: "", description: "", category: "", image: "" });
+    const [product, setProduct] = useState({ title: "", price: "" });
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -11,7 +11,7 @@ const AddProduct = ({ addProduct }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (product.title && product.price && product.description && product.category && product.image) {
+        if (product.title && product.price) {
             addProduct(product);
             navigate("/products");
         }
@@ -39,32 +39,7 @@ const AddProduct = ({ addProduct }) => {
                     className="w-full p-2 border rounded"
                     required
                 />
-                <textarea
-                    name="description"
-                    placeholder="Description"
-                    value={product.description}
-                    onChange={handleChange}
-                    className="w-full p-2 border rounded"
-                    required
-                />
-                <input
-                    type="text"
-                    name="category"
-                    placeholder="Category"
-                    value={product.category}
-                    onChange={handleChange}
-                    className="w-full p-2 border rounded"
-                    required
-                />
-                <input
-                    type="text"
-                    name="image"
-                    placeholder="Image URL"
-                    value={product.image}
-                    onChange={handleChange}
-                    className="w-full p-2 border rounded"
-                    required
-                />
+
                 <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
                     Add Product
                 </button>
